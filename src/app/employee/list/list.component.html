@@ -1,24 +1,33 @@
-<div class="text-end">
+<div class="text-end d-flex ">
+   <!-- profile -->
+
    <button class="btn btn-primary" (click)="openForm()">ADD EMPLOYEES</button>
 </div>
 <table class=" table">
    <thead>
       <tr>
          <th scope="col">sr no.</th>
-         <th scope="col">name </th>
+         <th scope="col">first-name </th>
+         <th scope="col">last-name </th>
          <th scope="col">email</th>
          <th scope="col">phone-number</th>
          <th scope="col">salary</th>
+         <th scope="col">action</th>
 
       </tr>
    </thead>
    <tbody>
       <tr *ngFor="let item of employeeData index as i">
          <td>{{i+1}}</td>
-         <td>{{item.name | uppercase}}</td>
+         <td>{{item.firstname}}</td>
+         <td>{{item.lastname}}</td>
          <td>{{item.email}}</td>
          <td>{{item.phonenumber}}</td>
-         <td>{{item.salary | currency:'INR'}}</td>
+         <td>{{item.salary |currency:'INR'}}</td>
+         <td>
+            <button class="btn btn-outline-success m-1" (click)="removeAt(item.id)">delete</button>
+            <button class="btn btn-outline-success" (click)="editItem(item)">Edit</button>
+         </td>
       </tr>
    </tbody>
 </table>

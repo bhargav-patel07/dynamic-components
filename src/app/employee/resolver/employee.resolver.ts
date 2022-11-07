@@ -13,4 +13,6 @@ export class EmployeeResolver implements Resolve<boolean> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return of(true);
   }
+
+
 }

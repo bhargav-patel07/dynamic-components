@@ -1,0 +1,55 @@
+$primary:#1a1c28;
+$gray-600: #222432;
+$body-color:#808089;
+$primary: #0e6cc4;
+$white: #ffffff;
+$success: #1eca1a;
+$danger: #e43536;
+$warning: #dc9909;
+$info: #8d63d3;
+
+// Body
+$body-color: $body-color;
+$body-bg: #1a1c28;
+
+// Fonts
+$text-muted: #9fa9bc;
+
+// Link color
+$link-color: $white;
+$link-hover-color: $primary;
+
+// Sidebar
+$nav-link-color: #7c7f88;
+$nav-link-active-color: $primary;
+$nav-link-active-bg: $primary;
+// $nav-link-font-weight: 700;
+
+// Header
+$badge-bg: $success;
+
+// Topbar
+$topbar-bg: #16191c;
+
+// Card
+$card-bg: #2d353b;
+$card-hover-bg: $primary;
+$card-icon-color: $warning;
+$card-text-sm-color: #595d69;
+
+// Table
+$table-header-bg: #354048;
+$table-cell-border-color:#29314a;
+$table-heading-color:#68707b;
+
+$theme-colors: (
+  "primary": $primary,
+  "warning": $warning,
+  "success": $success,
+  "danger": $danger,
+  "info": $info
+);
+
+
+// content
+$wrapper-bg: #212332;

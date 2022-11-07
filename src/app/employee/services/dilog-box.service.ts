@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 export class DilogBoxService {
+
   public closeDialog: Subject<boolean>
 
   constructor(private overlay: Overlay) {
@@ -18,7 +19,6 @@ export class DilogBoxService {
       .global()
       .centerHorizontally()
       .centerVertically();
-
     //Create the overlay with customizable options
     const overlayRef = this.overlay.create({
       positionStrategy,
@@ -27,8 +27,10 @@ export class DilogBoxService {
       panelClass: 'overlay-panel',
     });
 
+
     const portal = new ComponentPortal(component);
-    overlayRef.attach(portal);
+    const instance = overlayRef.attach(portal);
+
     //close the dialog using backdroupClick()
     overlayRef.backdropClick().subscribe(() => {
       overlayRef.detach();
@@ -37,5 +39,8 @@ export class DilogBoxService {
     this.closeDialog.subscribe(() => {
       overlayRef.detach();
     });
+
+    return instance
   }
+
 }

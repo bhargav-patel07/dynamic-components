@@ -7,21 +7,26 @@ import { ListComponent } from './list/list.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
-import { OverlayModule } from '@angular/cdk/overlay';
+import { OverlayModule, OverlayRef } from '@angular/cdk/overlay';
 import { DilogBoxService } from './services/dilog-box.service';
+import { DataCommunicationService } from './dataCommmunication/data-communication.service';
+import { ShareModule } from '../share/share.module';
+import { NumbersMaskingDirective } from './directives/numbers-masking.directive';
 
 
 @NgModule({
   declarations: [
     EmployeeComponent,
     ListComponent,
-    FormComponent
+    FormComponent,
+    NumbersMaskingDirective
   ],
   imports: [
     CommonModule,
     EmployeeRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    ShareModule,
     OverlayModule
   ],
   exports: [

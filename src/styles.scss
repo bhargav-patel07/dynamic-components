@@ -1,8 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
-
 /* Importing Bootstrap SCSS file. */
 @import '@angular/cdk/overlay-prebuilt.css';
 @import 'bootstrap/scss/bootstrap';
+/* You can add global styles to this file, and also import other style files */
+@import '../src/assets/scss/styles.scss';
+
 
 
 * {

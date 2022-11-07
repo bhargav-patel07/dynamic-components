@@ -10,6 +10,8 @@ import { EmployeeModule } from './employee/employee.module';
 import { ShareModule } from './share/share.module';
 import { FeatureModule } from './feature/feature.module';
 import { HttpClientModule } from '@angular/common/http';
+import { OverlayModule } from '@angular/cdk/overlay';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     EmployeeModule,
     ShareModule,
     FeatureModule,
-    HttpClientModule
+    HttpClientModule,
+    OverlayModule
   ],
   providers: [
     UserService,

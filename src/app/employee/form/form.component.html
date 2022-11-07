@@ -1,8 +1,66 @@
 <div class="form-use">
+    <div>
+        <p>EMPLOYEES</p>
+    </div>
     <form [formGroup]="employeeForm">
-        <input type="text" placeholder="enter firstname"><br>
-        <input type="text" placeholder="enter lastname"><br>
-        <input type="email" placeholder="enter email"><br>
-        <input type="number" placeholder="enter phone-number">
+        <!-- first name -->
+        <div class="my-2">
+            <input type="text" placeholder="enter firstname" formControlName="firstname" class="form-control">
+
+            <span
+                *ngIf="function['firstname'].invalid && (function['firstname'].touched || function['firstname'].dirty)"
+                class="text-danger">
+                <span *ngIf="function['firstname'].errors && function['firstname'].errors['required']">
+                    *please enter your firstname
+                </span>
+                <span *ngIf="function['firstname'].errors && function['firstname'].errors['minLength']">
+                    *please enter your atlist 3 charecter
+                </span>
+            </span>
+        </div>
+        <!-- last name -->
+        <div class="my-2">
+            <input type="text" placeholder="enter lastname" formControlName="lastname" class="form-control">
+
+            <span *ngIf="function['lastname'].invalid && (function['lastname'].touched || function['lastname'].dirty)"
+                class="text-danger">
+                <span *ngIf="function['lastname'].errors && function['lastname'].errors['required']">
+                    *please enter your lastname
+                </span>
+                <span *ngIf="function['lastname'].errors && function['lastname'].errors['minLength']">
+                    *please enter your atlist 3 charecter
+                </span>
+            </span>
+        </div>
+        <!-- email -->
+        <div class="my-2">
+            <input type="text" placeholder="email" formControlName="email" class="form-control">
+            <span
+                *ngIf="function['email'] && function['email'].invalid && function['email'].touched || function['email'].dirty"
+                class="text-danger">
+                <span *ngIf="function['email'].errors && function['email'].errors['required']">
+                    *please enter your email
+                </span>
+            </span>
+        </div>
+        <!-- phone number -->
+        <div class="my-2">
+            <input type="text" placeholder="phone" appNumbersMasking formControlName="phonenumber" class="form-control">
+            <span *ngIf="function['phonenumber'] && function['phonenumber'].invalid && function['phonenumber'].touched"
+                class="text-danger">*please enter your
+                phone number</span>
+        </div>
+        <!-- salary -->
+        <div class="my-2">
+            <input type="text" placeholder="salary" formControlName="salary" class="form-control">
+            <span *ngIf="function['salary'] && function['salary'].invalid && function['salary'].touched"
+                class="text-danger">*please enter your
+                salary</span>
+        </div>
+        <!-- button -->
+        <div>
+            <button class="btn btn-primary m-1" (click)="save()">save</button>
+            <button class="btn btn-primary m-1" (click)="reset()">cancle</button>
+        </div>
     </form>
 </div>
