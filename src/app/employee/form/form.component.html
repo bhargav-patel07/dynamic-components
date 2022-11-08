@@ -4,6 +4,7 @@
     </div>
     <form [formGroup]="employeeForm">
         <!-- first name -->
+
         <div class="my-2">
             <input type="text" placeholder="enter firstname" formControlName="firstname" class="form-control">
 
@@ -59,7 +60,7 @@
         </div>
         <!-- button -->
         <div>
-            <button class="btn btn-primary m-1" (click)="save()">save</button>
+            <button class="btn btn-primary m-1" [disabled]="!employeeForm.valid" (click)="save()">save</button>
             <button class="btn btn-primary m-1" (click)="reset()">cancle</button>
         </div>
     </form>

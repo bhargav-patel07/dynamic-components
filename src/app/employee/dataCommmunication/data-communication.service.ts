@@ -11,12 +11,9 @@ export class DataCommunicationService {
   name$: any;
   constructor() { }
 
-  getData(company: user) {
-    this.dataCommunication.next(company);
+  getData(user: user) {
+    this.dataCommunication.next(user);
   }
-
-
-
 }
 
 

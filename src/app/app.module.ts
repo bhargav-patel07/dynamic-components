@@ -11,6 +11,7 @@ import { ShareModule } from './share/share.module';
 import { FeatureModule } from './feature/feature.module';
 import { HttpClientModule } from '@angular/common/http';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { EmployeeAdapter } from './employee/adapter/employee.adapter';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
   ],
   providers: [
     UserService,
-    EmployeeResolver
+    EmployeeResolver, EmployeeAdapter
   ],
   bootstrap: [AppComponent]
 })

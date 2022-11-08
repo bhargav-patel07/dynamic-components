@@ -2,6 +2,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { FormComponent } from '../form/form.component';
 
 @Injectable()
 export class DilogBoxService {
@@ -12,7 +13,7 @@ export class DilogBoxService {
     this.closeDialog = new Subject();
   }
 
-  openDialog(component: any) {
+  openDialog() {
     //Globally centered position strategy
     const positionStrategy = this.overlay
       .position()
@@ -28,7 +29,7 @@ export class DilogBoxService {
     });
 
 
-    const portal = new ComponentPortal(component);
+    const portal = new ComponentPortal(FormComponent);
     const instance = overlayRef.attach(portal);
 
     //close the dialog using backdroupClick()

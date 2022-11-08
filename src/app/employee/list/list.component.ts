@@ -4,7 +4,8 @@ import { FormComponent } from '../form/form.component';
 import { DilogBoxService } from '../services/dilog-box.service';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
-import { Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { Overlay } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
 
 
 @Component({
@@ -32,10 +33,8 @@ export class ListComponent implements OnInit {
     )
   }
 
-
-
   openForm() {
-    this.dailog.openDialog(FormComponent);
+    this.dailog.openDialog();
   }
 
   removeAt(id: any) {
@@ -45,7 +44,8 @@ export class ListComponent implements OnInit {
   }
 
   editItem(user: user) {
-    this.dailog.openDialog(FormComponent);
+    const overlayRef = this.dailog.openDialog();
+    overlayRef.instance.employeeForm.patchValue(user);
 
   }
 }

@@ -15,12 +15,14 @@ export class FormComponent implements OnInit {
   public employeeForm: FormGroup;
   public employeeData: any;
   id: any;
+  closeDialog: any;
 
 
 
   constructor(private usersservice: UserService, private datacommunation: DataCommunicationService, private dilog: DilogBoxService) {
     this.employeeData = [];
     this.employeeForm = new FormGroup({
+      id: new FormControl(''),
       firstname: new FormControl('', [Validators.required, Validators.minLength(3)]),
       lastname: new FormControl('', [Validators.required, Validators.minLength(3)]),
       email: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$')]),
@@ -36,14 +38,20 @@ export class FormComponent implements OnInit {
     return this.employeeForm.controls;
   }
   save() {
-    if (this.id) {
-      this.updateData()
-    } else {
-      this.usersservice.addEmployee(this.employeeForm.value).subscribe(res => {
-        console.log(res);
-        this.datacommunation.getData(res);
-      })
+    debugger
+    if (this.employeeForm.valid) {
+
+      if (this.employeeForm.value.id) {
+        this.updateData()
+      }
+      else {
+        this.usersservice.addEmployee(this.employeeForm.value).subscribe((res: any) => {
+          debugger
+          this.datacommunation.getData(res);
+        })
+      }
     }
+
   }
 
   public reset(): void {
@@ -51,8 +59,8 @@ export class FormComponent implements OnInit {
   }
 
   updateData() {
-    this.usersservice.updateEmployee(Number(this.id), this.employeeForm.value).subscribe(res => {
-      this.getEmployeeData();
+    this.usersservice.updateEmployee(this.employeeForm.value.id, this.employeeForm.value).subscribe(res => {
+      this.datacommunation.getData(res);
     })
   }
 

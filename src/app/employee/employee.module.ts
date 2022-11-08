@@ -12,6 +12,7 @@ import { DilogBoxService } from './services/dilog-box.service';
 import { DataCommunicationService } from './dataCommmunication/data-communication.service';
 import { ShareModule } from '../share/share.module';
 import { NumbersMaskingDirective } from './directives/numbers-masking.directive';
+import { EmployeeAdapter } from './adapter/employee.adapter';
 
 
 @NgModule({
@@ -36,7 +37,9 @@ import { NumbersMaskingDirective } from './directives/numbers-masking.directive'
   ],
   providers: [
     UserService,
-    DilogBoxService
+    DilogBoxService,
+    DataCommunicationService,
+    EmployeeAdapter
   ]
 })
 export class EmployeeModule { }
